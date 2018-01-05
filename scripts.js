@@ -1,9 +1,13 @@
-menu.onclick = function menuShow() {
-	var x = document.getElementById('myTopNav');
+'use strict';
 
-	if (x.className === 'topnav') {
-		x.className += ' responsive';
+let myMenu = document.getElementById('menu');
+
+myMenu.onclick = function menuShow() {
+	let navMenu = document.getElementById('myTopNav');
+
+	if (navMenu.classList.length === 1) {
+		navMenu.classList.add('responsive');
 	} else {
-		x.className = 'topnav';
+		navMenu.classList.remove('responsive');
 	}
 };

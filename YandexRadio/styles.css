@@ -1,0 +1,174 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+    font: 13px Arial,Helvetica,sans-serif;
+}
+header{
+    margin: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 30px;
+}
+.logo > span{
+    font-weight: bold;
+}
+.logo>span>b{
+    color: red;
+}
+.headButton{
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background: transparent;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headButton:hover{
+    border: 1px solid rgba(128, 128, 128, 0.699);
+}
+.stations .hamburger{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+}
+.stations .hamburger div{
+    margin: 2px;
+    width: 18px;
+    height: 2px;
+    background: gray;
+}
+.settings{
+    position: absolute;
+    right: 15px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.container .title{
+    margin-top: 25px;
+    font-size: 1.7em;
+    font-weight: normal;
+}
+.container .song{
+    margin-top: 160px;
+}
+.cover img{
+    width: 300px;
+    box-shadow: #0072a8d9 0px 0px 200px -10px;
+}
+.song .songName{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+.song .artistName{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 2px;
+}
+.controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controlsButton{
+    border-radius: 50%;
+    border: 2px solid rgb(184, 184, 184);
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+.controlsButton:hover{
+    transition: 250ms;
+    border: 2px solid black;
+}
+.controls .play{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+}
+.controls .bad{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controls .good{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controls img{
+    width: 40%;
+    height: 40%;
+}
+.bad img{
+    margin-top: 3px;
+    transform: rotate(180deg);
+}
+.play img{
+    margin-left: 7px;
+    width: 55%;
+    height: 55%;
+}
+footer{
+    margin: 0;
+    padding: 8px 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+p{
+    margin: 0;
+    padding: 0; 
+}
+a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: lightslategray;
+}
+a:hover{
+    color: red;
+}
+.info p::before{
+    color: rgb(158, 158, 158);
+    margin-right: 5px;
+    content: "\00a9  2018";
+}
+.info{
+    position: absolute;
+    left: 15px;
+}
+.social{
+    text-align: center;
+}
+.links{
+    position: absolute;
+    right: 30px;
+}
+.footerContainer{
+    line-height: 25px;
+    height: 25px;
+}

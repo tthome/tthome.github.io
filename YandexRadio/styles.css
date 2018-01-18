@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     margin: 0;
     padding: 0;
@@ -6,20 +10,33 @@ body{
     font: 13px Arial,Helvetica,sans-serif;
 }
 header{
-    margin: 18px;
+    /* margin: 18px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+.headContainer{
+    padding-top: 15px;
+    position: relative;
+    text-align: center;
+    height: 60px;
 }
 .logo{
     font-family: 'Open Sans Condensed', sans-serif;
     position: absolute;
-    left: 15px;
+    left: 30px;
     cursor: pointer;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     font-size: 30px;
 }
-.logo > span{
+.logo>span:first-child{
+    position: relative;
     font-weight: bold;
 }
 .logo>span>b{
@@ -31,44 +48,141 @@ header{
     border-radius: 4px;
     background: transparent;
     padding: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-block;
+    outline: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+    /* justify-content: space-between;
+    align-items: center; */
 }
 .headButton:hover{
     border: 1px solid rgba(128, 128, 128, 0.699);
 }
+.stations{
+    display: inline-block;
+}
+.stations span{
+    vertical-align: middle;
+}
 .stations .hamburger{
-    flex-direction: column;
-    align-items: center;
-    display: flex;
+    display: inline-block;
+    vertical-align: middle;
     margin-right: 10px;
 }
-.stations .hamburger div{
-    margin: 2px;
+.hamburger div{
+    margin: 3px;
     width: 18px;
     height: 2px;
     background: gray;
 }
 .settings{
+    white-space: nowrap;
+    text-align: right;
     position: absolute;
-    right: 15px;
-    margin-right: 10px;
-    display: flex;
+    right: 0px;
+    padding-right: 30px;
+    display: inline-block;
+    /* display: flex;
     justify-content: space-between;
+    align-items: center; */
+}
+.settings img{
+    cursor: pointer;
+    /* margin-top: 5px;
+    margin-right: 30px;
+    width: 3%; */
+}
+.properties{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0;
+    margin: 0 4px;
+}
+.properties img{
+    opacity: 0.4;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+}
+.properties img:hover{
+    opacity: 1;
+    transition: 50ms;
+}
+.volume{
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    margin: 0 6px;
+    text-align: left;
+    vertical-align: middle;
+}
+.volume img{
+    opacity: 0.4;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+}
+.volume img:hover{
+    opacity: 1;
+    transition: 50ms;
+}
+.settings .headButton{
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
 }
 .container{
-    align-items: center;
+    box-sizing: border-box;
+    padding: 100px 30px 40px;
+    /* align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
 }
-.container .title{
-    margin-top: 25px;
+.title{
+    text-align: center;
+}
+.title h1{
     font-size: 1.7em;
     font-weight: normal;
+    vertical-align: middle;
+    display: inline-block;
 }
-.container .song{
-    margin-top: 160px;
+.addButton{
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.addButton span{
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+.song{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -150px;
+}
+.player{
+    position: relative;
+}
+.playerControl{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    
+    margin-left: -150px;
+    text-align: center;
 }
 .cover img{
     width: 300px;
@@ -86,6 +200,7 @@ header{
     margin-top: 2px;
 }
 .controls{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -131,6 +246,9 @@ header{
     width: 55%;
     height: 55%;
 }
+.controls .dots{
+    position: absolute;
+}
 footer{
     margin: 0;
     padding: 8px 30px;
@@ -167,6 +285,9 @@ a:hover{
 .links{
     position: absolute;
     right: 30px;
+}
+.links a{
+    margin-left: 20px;
 }
 .footerContainer{
     line-height: 25px;

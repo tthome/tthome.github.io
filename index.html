@@ -24,7 +24,7 @@
     <div class="about-container">
         <div class="about">
             <div class="photo">
-                <img src="assets/pic.JPG">
+                <img src="assets/avatar.jpg">
             </div>
             <div class="description">
                 <p>Я Тимко Тимофей</p>
@@ -145,8 +145,8 @@
         if(list.length < 4 || !list) return;
 
         try {
-            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top;
-            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top;
+            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top +100;
+            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 100;
             let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top;
             let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top;
 
@@ -171,7 +171,7 @@
         ageElem.innerHTML = years + " лет, " + day + " дней";
     }
 
-    getAge();
+    //getAge();
 
     function scrollToElement(topCoord) {
         window.scrollBy({

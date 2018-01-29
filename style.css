@@ -82,7 +82,7 @@ header {
 .about .photo img {
     border: 10px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    transform: rotate(90deg);
+    /*transform: rotate(90deg);*/
     max-height: 200px;
     min-height: 100px;
     box-sizing: border-box;
@@ -107,6 +107,7 @@ header {
 
 main {
     position: relative;
+    background: white;
 }
 
 main:before {

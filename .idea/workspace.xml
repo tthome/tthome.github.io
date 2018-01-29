@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768891fe-94a0-41ea-8c1e-e6016d06c519" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/YandexRadio/imgs/cover.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/imgs/like.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/imgs/play.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/imgs/settings.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/imgs/speaker.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/YandexRadio/styles.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/about.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/pic.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/blog.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/contacts.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/advantages/6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/logo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/main.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/screens/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/screens/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/screens/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/screens/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/screens/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/social/em.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/social/face.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/social/goo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/social/inst.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/social/pint.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/location.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/screenshots.html" afterPath="" />
       <change beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
-      <change beforePath="$PROJECT_DIR$/styles.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="575">
-              <caret line="148" column="125" lean-forward="false" selection-start-line="148" selection-start-column="125" selection-end-line="148" selection-end-column="125" />
+              <caret line="148" column="125" lean-forward="true" selection-start-line="148" selection-start-column="125" selection-end-line="148" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -63,8 +29,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="109" column="22" lean-forward="true" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+            <state relative-caret-position="595">
+              <caret line="251" column="27" lean-forward="false" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -173,12 +139,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517229820096</updated>
-      <workItem from="1517229825680" duration="405000" />
+      <workItem from="1517229825680" duration="1369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="405000" />
+    <option name="totallyTimeSpent" value="1369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="934" y="0" width="993" height="1047" extended-state="0" />
@@ -217,15 +183,15 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
-          <caret line="148" column="125" lean-forward="false" selection-start-line="148" selection-start-column="125" selection-end-line="148" selection-end-column="125" />
+          <caret line="148" column="125" lean-forward="true" selection-start-line="148" selection-start-column="125" selection-end-line="148" selection-end-column="125" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="109" column="22" lean-forward="true" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+        <state relative-caret-position="595">
+          <caret line="251" column="27" lean-forward="false" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    background: #1d2671; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #c33764, #1d2671); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #c33764, #1d2671); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.menu ul {
+    opacity: 0.9;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    /*margin-left: 20%;*/
+    /*margin-right: 20%;*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.menu ul li a {
+    border-bottom: 2px solid transparent;
+    font-weight: lighter;
+    font-size: 1rem;
+    color: white;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    transition: border-bottom-color 200ms ease;
+}
+
+.menu ul li a:hover {
+    border-bottom: 2px solid white;
+
+}
+
+.about-container {
+    padding-top: 70px;
+    padding-bottom: 100px;
+    max-height: 100%;
+    position: relative;
+    max-width: 60%;
+    min-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-container:before {
+    content: "Привет";
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.about-container:after {
+    display: block;
+    content: "листайте ниже, чтобы узнать больше";
+    font-weight: lighter;
+    color: white;
+    font-size: 1.2rem;
+    margin: 100px 15px 30px;
+    opacity: 0.7;
+}
+
+.about {
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .photo img {
+    border: 10px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: rotate(90deg);
+    max-height: 200px;
+    min-height: 100px;
+    box-sizing: border-box;
+}
+
+.about .description {
+    margin-left: 60px;
+    text-align: left;
+}
+
+.about .description p {
+    color: white;
+    font-size: 1.8rem;
+    opacity: 0.7;
+    font-weight: lighter;
+}
+
+.about .description p:first-child {
+    opacity: 1;
+    font-weight: normal;
+}
+
+main {
+    position: relative;
+}
+
+main:before {
+    content: "";
+    position: absolute;
+    height: 110px;
+    top: -100px;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    background: url("assets/triangle.png") no-repeat;
+    background-size: cover;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 25px;
+    padding: 40px 20px 70px 20px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.skillBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: lightgray 1px 1px 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.main-skills {
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: lightgray 1px 1px 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;*/
+}
+
+.skill {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 15px 30px;
+    max-width: 360px;
+    z-index: 3;
+    background: white;
+    cursor: pointer;
+}
+
+.skill:hover {
+    background: whitesmoke;
+    transition: 200ms ease;
+}
+
+.skill:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.skill:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.skill p {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+}
+
+.html {
+    background: url("assets/main-skills.png") no-repeat 10px 100%;
+    background-size: cover;
+}
+
+.css {
+    background: url("assets/main-skills.png") no-repeat -360px 100%;
+    background-size: cover;
+}
+
+.js {
+    background: url("assets/main-skills.png") no-repeat center 100%;
+    background-size: cover;
+}
+
+.other-skills {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.photoshop {
+    background: url("assets/psCC.png") no-repeat 100% 100%;
+    background-size: cover;
+}
+
+.illustrator {
+    background: url("assets/ilCC.png") no-repeat 100% 100%;
+    background-size: cover;
+}
+
+.education-container{
+    text-align: center;
+    padding-top: 100px;
+    position: relative;
+    background: #1d2671; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #1d2671, #c33764); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #1d2671, #c33764);
+}
+
+.education-container:before{
+    transform: rotate(180deg);
+    content: "";
+    position: absolute;
+    height: 110px;
+    top: -10px;
+    left: 0;
+    right: 0;
+    background: url("assets/triangle.png") no-repeat;
+    background-size: cover;
+}
+
+.education-container p{
+    color: white;
+}
+
+.educations{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.educations img{
+    width: auto;
+    height: 136px;
+}
+
+.first-education{
+    border-top-left-radius: 15px;
+}
+
+.education{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background: rgba(245, 245, 245, 0.1);
+    padding: 25px 25px 50px;
+}
+
+.info {
+    margin-left: 20px;
+    display: inline-block;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 1.2rem;
+}
+.info p{
+    margin-top: 20px;
+}
+.info p:first-child{
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+.info p:last-child{
+    font-style: italic;
+}
+
+.second-education{
+    border-left: 1px solid rgba(245, 245, 245, 0.15);
+    border-top-right-radius: 15px;
+}
+
+.contacts-container{
+  text-align: center;
+  background: -webkit-linear-gradient(to bottom, #1b1b1b, #333333); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #0e0e0e, #333333);
+}
+.contacts-container p, a{
+  color: white;
+}
+
+.contacts-container .mail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mail a{
+  margin-left: 20px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.copyright{
+  padding: 30px;
+  font-weight: lighter;
+  opacity: 0.5;
+
+}
+
+.arrow{
+    width: 20px;
+    height: 20px;
+    border: solid rgba(0, 0, 0, 0.61);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    /*padding: 3px;*/
+    margin-top: 10px;
+}
+
+.up{
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.navButton{
+    background: rgba(175, 175, 175, 0.2);
+    bottom: 40px;
+    left: 15%;
+    z-index: 1000;
+    opacity: 0;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: rgba(20, 20, 20, 1) 0 3px 15px;
+    transition: background, opacity, 250ms ease;
+}
+
+.navButton:hover{
+    background: rgba(175, 175, 175, 0.6);
+}
+
+@media screen and (max-width: 1024px) {
+    .educations{
+        width: 90%;
+    }
+    .education{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .menu ul{
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    .menu ul li {
+        margin-top: 10px;
+
+    }
+    .menu ul li a{
+        text-align: center;
+        display: block;
+    }
+    .about{
+        margin: 15px;
+    }
+    .about .description{
+        margin-left: 20px;
+    }
+    .educations{
+        width: 100%;
+    }
+    .education{
+        flex-direction: column;
+        padding: 20px 5px 25px;
+    }
+    .skillBox{
+        flex-direction: column;
+    }
+    .skill:first-child{
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+    }
+    .skill:last-child{
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+    }
+    .photo img{
+        width: 150px;
+    }
+    .mail{
+    }
+}

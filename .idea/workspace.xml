@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768891fe-94a0-41ea-8c1e-e6016d06c519" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,8 +68,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="934" />
-    <option name="width" value="993" />
+    <option name="x" value="564" />
+    <option name="y" value="1" />
+    <option name="width" value="910" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -139,15 +140,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517229820096</updated>
-      <workItem from="1517229825680" duration="1627000" />
+      <workItem from="1517229825680" duration="2321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1627000" />
+    <option name="totallyTimeSpent" value="2321000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="934" y="0" width="993" height="1047" extended-state="0" />
+    <frame x="564" y="1" width="910" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50641024" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

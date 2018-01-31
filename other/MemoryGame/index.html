@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="start-page page">
+    <img src="assets/logos/StartGame.png">
+    <p>memory game</p>
+    <a id="newGame" class="button" href="#">Начать игру</a>
+</div>
+
+<div class="game-page notDisplaying">
+    <!--<div class="head">-->
+    <!--<div>Начать заново</div>-->
+    <!--<div class="score">Очки: <span>0</span></div>-->
+    <!--</div>-->
+    <table id="gameTable">
+        <tr>
+            <td colspan="3">Начать заново</td>
+            <td colspan="3">Очки: <span>0</span></td>
+        </tr>
+        <tr>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+        </tr>
+        <tr>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+        </tr>
+        <tr>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td><img src="assets/cards/back.PNG" alt=""></td>
+        </tr>
+    </table>
+</div>
+
+<div class="end-page page notDisplaying">
+    <img src="assets/logos/Group%202.png">
+    <p>Поздравляем!</p>
+    <p>Ваш итоговый счет: 594</p>
+    <a id="restart" class="button" href="#">Еще раз</a>
+</div>
+
+<script>
+    let gameTableElem = document.getElementById('gameTable');
+    let scoreElem = gameTableElem.querySelector('td span');
+    let imagesList = gameTableElem.querySelectorAll('tr td img');
+    let restartButton = document.getElementById('restart');
+    let newGameButton = document.getElementById('newGame');
+    let cardFirst;
+    let isClicked = false;
+    let cardsList = [
+        "0C", "0D", "0H", "0S",
+        "2C", "2D", "2H", "2S",
+        "3C", "3D", "3H", "3S",
+        "4C", "4D", "4H", "4S",
+        "5C", "5D", "5H", "5S",
+        "6C", "6D", "6H", "6S",
+        "7C", "7D", "7H", "7S",
+        "8C", "8D", "8H", "8S",
+        "9C", "9D", "9H", "9S",
+        "AC", "AD", "AH", "AS",
+        "JC", "JD", "JH", "JS",
+        "KC", "KD", "KH", "KS",
+        "QC", "QD", "QH", "QS",
+    ];
+    let cardCount = 18, score = 0;
+
+    gameTableElem.onclick = function (event) {
+        let target = event.target;
+
+        if (target.tagName !== 'IMG') return false;
+
+        if (!isClicked) {
+            isClicked = !isClicked;
+            cardFirst = target;
+        }
+        else if (cardFirst.src === target.src) {
+            target.classList.add('hidden');
+            cardFirst.classList.add('hidden');
+            cardCount -= 2;
+            isClicked = !isClicked;
+
+            if (cardCount <= 0) {
+                document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
+                document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
+            }
+        }
+        else {
+            isClicked = !isClicked;
+            cardFirst = "";
+            alert('not a pair');
+        }
+
+
+    };
+
+    newGameButton.onclick = restartButton.onclick = newGame;
+
+    function newGame() {
+        this.parentNode.classList.toggle('notDisplaying');
+        document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
+
+        imagesList.forEach(image => {
+            image.classList.remove('hidden')
+        });
+
+        cardCount = 18;
+        score = 0;
+
+        setRandomCards();
+    }
+
+    function setRandomCards() {
+        let array = getRandomArray(9, cardsList.length);
+        let arrayCopy = shuffleArray(array.slice(0));
+
+        /*arr.forEach((array) => {
+            console.log(array)
+        });
+        console.log("");
+        arr2.forEach((array) => {
+            console.log(array)
+        });
+        console.log("");*/
+
+        try {
+            for (let i = 0; i < 9; i++) {
+                imagesList[i].src = setPath(cardsList[array[i]]);
+                // console.log(cardsList[arr[i]]);
+            }
+            // console.log("");
+            for (let i = 9; i < 18; i++) {
+                imagesList[i].src = setPath(cardsList[arrayCopy[i - 9]]);
+                // console.log(cardsList[arr2[i - 9]]);
+            }
+        }
+        catch (err) {
+        }
+    }
+
+    function setPath(name) {
+        return "assets/cards/" + name + ".png";
+    }
+
+    function getRandomArray(length, max) {
+        let current, array = [];
+
+        for (let i = 0; i < length;) {
+            current = Math.floor(Math.random() * (max + 1));
+
+            if (array.length !== 0) {
+                if (!array.includes(current)) {
+                    i++;
+                    array.push(current);
+                }
+            } else {
+                i++;
+                array.push(current);
+            }
+        }
+        return array;
+
+        /*return Array.apply(null, Array(length)).map(function () {
+            return Math.round(Math.random() * max);
+        });*/
+    }
+
+    // перемешать массив
+    function shuffleArray(array, max) {
+        let tmp, current;
+        if (max) while (--max) {
+            current = Math.floor(Math.random() * (max + 1));
+            tmp = array[current];
+            array[current] = array[max];
+            array[max] = tmp;
+        }
+        return array;
+    }
+
+
+    setRandomCards();
+
+</script>
+
+</body>
+</html>

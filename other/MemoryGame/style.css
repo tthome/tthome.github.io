@@ -103,6 +103,12 @@ td div img{
     width: 128px;
     box-shadow: black 0 1px 5px;
     transition: 250ms ease;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 td:last-child div{
     margin-right: 0;

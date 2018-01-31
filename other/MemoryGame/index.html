@@ -86,7 +86,7 @@
 <div class="end-page page notDisplaying">
     <img src="assets/logos/Group%202.png">
     <p>Поздравляем!</p>
-    <p>Ваш итоговый счет: 594</p>
+    <p>Ваш итоговый счет: <span>594</span></p>
     <a id="restart" class="button" href="#">Еще раз</a>
 </div>
 
@@ -113,7 +113,7 @@
         "KC", "KD", "KH", "KS",
         "QC", "QD", "QH", "QS",
     ];
-    let cardCount = 18, score = 0;
+    let openCardCount = 0, score = 0;
 
     gameTableElem.onclick = function (event) {
         let target = event.target;
@@ -136,17 +136,25 @@
             wait = true;
             hideCardsPair(target, cardFirst);
 
-            cardCount -= 2;
+            openCardCount += 2;
+            score += (9 - (openCardCount / 2)) * 42;
+            scoreElem.innerHTML = score;
+
             isFirstClicked = !isFirstClicked;
             // win game check
-            if (cardCount <= 0) {
+            if (openCardCount >= 18) {
                 document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
                 document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
+                document.querySelector('.end-page p span').innerHTML = score.toString();
             }
         }
         else { // incorrect card
             target.style.opacity = '1';
             wait = true;
+
+            score -= openCardCount / 2 * 42;
+            scoreElem.innerHTML = score;
+
             isFirstClicked = !isFirstClicked;
             setTimeout(function () {
                 target.style.opacity = '0'; // TODO: replace to 0
@@ -189,9 +197,10 @@
         this.parentNode.classList.toggle('notDisplaying');
         document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
 
-        cardCount = 18;
+        openCardCount = 0;
         score = 0;
-
+        scoreElem.innerHTML = score;
+        
         setRandomCards();
 
         hideAllCards();

@@ -72,18 +72,22 @@ tr:first-child td{
     opacity: 0.8;
     letter-spacing: 0;
     font-weight: normal;
-    padding-bottom: 25px;
+    cursor: pointer;
+    transition: 200ms ease;
+}
+tr:first-child td:first-child:hover{
+    opacity: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
 }
 tr:first-child td:last-child{
     text-align: right;
 }
-td{
-    align-items: center;
-    vertical-align: middle;
-}
 
 td div{
-    margin-bottom: 25px;
+    margin-top: 25px;
     margin-right: 25px;
     border-radius: 8px;
     background: url("assets/cards/back.PNG") no-repeat;
@@ -94,7 +98,9 @@ td div{
     box-shadow: black 0 1px 5px;
     cursor: pointer;
 }
-
+td div:hover{
+    box-shadow: black 0 1px 25px;
+}
 td div img{
     display: block;
     opacity: 1;

@@ -17,8 +17,8 @@
 <div class="game-page notDisplaying">
     <table id="gameTable">
         <tr>
-            <td colspan="3">Начать заново</td>
-            <td colspan="3">Очки: <span>0</span></td>
+            <td colspan="1">Начать заново</td>
+            <td colspan="5">Очки: <span>0</span></td>
         </tr>
         <tr>
             <td>
@@ -93,6 +93,7 @@
 <script>
     let gameTableElem = document.getElementById('gameTable');
     let scoreElem = gameTableElem.querySelector('td span');
+    let newGameTextElem = gameTableElem.querySelector('tr:first-child td:first-child');
     let imagesList = gameTableElem.querySelectorAll('tr td div img');
     let restartButton = document.getElementById('restart');
     let newGameButton = document.getElementById('newGame');
@@ -143,9 +144,12 @@
             isFirstClicked = !isFirstClicked;
             // win game check
             if (openCardCount >= 18) {
-                document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
-                document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
-                document.querySelector('.end-page p span').innerHTML = score.toString();
+                setTimeout(function () {
+                    document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
+                    document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
+                    document.querySelector('.end-page p span').innerHTML = score.toString();
+                }, 500);
+
             }
         }
         else { // incorrect card
@@ -165,7 +169,7 @@
         }
     };
 
-    newGameButton.onclick = restartButton.onclick = newGame;
+    newGameButton.onclick = restartButton.onclick = newGameTextElem.onclick = newGame;
 
     function hideCardsPair(card1, card2) {
         setTimeout(function () {
@@ -194,13 +198,15 @@
     }
 
     function newGame() {
-        this.parentNode.classList.toggle('notDisplaying');
-        document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
+        if(this.parentNode.tagName!=='TR'){
+            this.parentNode.classList.toggle('notDisplaying');
+            document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
+        }
 
         openCardCount = 0;
         score = 0;
         scoreElem.innerHTML = score;
-        
+
         setRandomCards();
 
         hideAllCards();
@@ -211,24 +217,12 @@
         let array = getRandomArray(9, cardsList.length);
         let arrayCopy = shuffleArray(array.slice(0));
 
-        /* array.forEach((array) => {
-             console.log(array)
-         });
-         console.log("");
-         arrayCopy.forEach((array) => {
-             console.log(array)
-         });
-         console.log("");*/
-
         try {
             for (let i = 0; i < 9; i++) {
                 imagesList[i].src = setPath(cardsList[array[i]]);
-                // console.log(setPath(cardsList[array[i]]));
             }
-            // console.log("");
             for (let i = 9; i < 18; i++) {
                 imagesList[i].src = setPath(cardsList[arrayCopy[i - 9]]);
-                // console.log(setPath(cardsList[arrayCopy[i - 9]]));
             }
 
             imagesList.forEach(function (item) {

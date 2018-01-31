@@ -14,7 +14,7 @@
     <a id="newGame" class="button" href="#">Начать игру</a>
 </div>
 
-<div class="game-page notDisplaying" >
+<div class="game-page notDisplaying">
     <table id="gameTable">
         <tr>
             <td colspan="3">Начать заново</td>
@@ -121,8 +121,6 @@
         if (target.tagName !== 'IMG') return false;
         if (wait) return false;
 
-
-
         if (!isFirstClicked) {
             target.style.opacity = '1';
             isFirstClicked = !isFirstClicked;
@@ -172,8 +170,8 @@
                 card1.style.height = '0';
                 card2.style.height = '0';
                 wait = false;
-            },200);
-        },500);
+            }, 200);
+        }, 500);
 
     }
 
@@ -191,10 +189,6 @@
         this.parentNode.classList.toggle('notDisplaying');
         document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
 
-        /*imagesList.forEach((image) => {
-            image.parentElement.style.opacity = '1';
-        });*/
-
         cardCount = 18;
         score = 0;
 
@@ -208,14 +202,14 @@
         let array = getRandomArray(9, cardsList.length);
         let arrayCopy = shuffleArray(array.slice(0));
 
-       /* array.forEach((array) => {
-            console.log(array)
-        });
-        console.log("");
-        arrayCopy.forEach((array) => {
-            console.log(array)
-        });
-        console.log("");*/
+        /* array.forEach((array) => {
+             console.log(array)
+         });
+         console.log("");
+         arrayCopy.forEach((array) => {
+             console.log(array)
+         });
+         console.log("");*/
 
         try {
             for (let i = 0; i < 9; i++) {
@@ -231,9 +225,10 @@
             imagesList.forEach(function (item) {
                 item.onload = function () {
                     item.style.height = '181px';
+                    item.style.opacity = '1';
                     setTimeout(function () {
                         item.parentElement.style.height = '180px';
-                    },200);
+                    }, 200);
 
                 };
 

@@ -7,16 +7,11 @@
 }
 
 html{
-    background: #207934;
-    /*background: radial-gradient(#207934, #1b6b2e) no-repeat;*/
-
+    background-color: #207934;
 }
 
 body{
     color: #FFFFFF;
-    /*background: #207934;*/
-    /*background: radial-gradient(#207934, #1b6b2e) no-repeat;*/
-
 }
 p{
     opacity: 0.85;
@@ -38,6 +33,9 @@ p{
     border-radius: 4px;
     padding: 10px 20px;
     box-sizing: border-box;
+}
+.button:hover{
+    background: white;
 }
 .page{
     margin-top: 10%;
@@ -79,17 +77,34 @@ tr:first-child td{
 tr:first-child td:last-child{
     text-align: right;
 }
-td img{
-    opacity: 1;
-    border-radius: 8px;
-    height: 180px;
+td{
+    align-items: center;
+    vertical-align: middle;
+}
+
+td div{
     margin-bottom: 25px;
     margin-right: 25px;
-    box-shadow: black 1px 1px 3px;
+    border-radius: 8px;
+    background: url("assets/cards/back.PNG") no-repeat;
+    height: 0;
+    width: 128px;
+    opacity: 1;
+    transition: 300ms ease;
+    box-shadow: black 0 1px 5px;
     cursor: pointer;
-    transition: opacity 250ms ease;
 }
-td:last-child img{
+
+td div img{
+    display: block;
+    opacity: 1;
+    border-radius: 8px;
+    height: 181px;
+    width: 128px;
+    box-shadow: black 0 1px 5px;
+    transition: 250ms ease;
+}
+td:last-child div{
     margin-right: 0;
 }
 

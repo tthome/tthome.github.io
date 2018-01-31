@@ -8,45 +8,77 @@
 </head>
 <body>
 
-<div class="start-page page">
+<div class="start-page page ">
     <img src="assets/logos/StartGame.png">
     <p>memory game</p>
     <a id="newGame" class="button" href="#">Начать игру</a>
 </div>
 
-<div class="game-page notDisplaying">
-    <!--<div class="head">-->
-    <!--<div>Начать заново</div>-->
-    <!--<div class="score">Очки: <span>0</span></div>-->
-    <!--</div>-->
+<div class="game-page notDisplaying" >
     <table id="gameTable">
         <tr>
             <td colspan="3">Начать заново</td>
             <td colspan="3">Очки: <span>0</span></td>
         </tr>
         <tr>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
         </tr>
         <tr>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
         </tr>
         <tr>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
-            <td><img src="assets/cards/back.PNG" alt=""></td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
+            <td>
+                <div><img src="#"></div>
+            </td>
         </tr>
     </table>
 </div>
@@ -61,11 +93,11 @@
 <script>
     let gameTableElem = document.getElementById('gameTable');
     let scoreElem = gameTableElem.querySelector('td span');
-    let imagesList = gameTableElem.querySelectorAll('tr td img');
+    let imagesList = gameTableElem.querySelectorAll('tr td div img');
     let restartButton = document.getElementById('restart');
     let newGameButton = document.getElementById('newGame');
     let cardFirst;
-    let isClicked = false;
+    let isFirstClicked = false, wait = true;
     let cardsList = [
         "0C", "0D", "0H", "0S",
         "2C", "2D", "2H", "2S",
@@ -87,56 +119,100 @@
         let target = event.target;
 
         if (target.tagName !== 'IMG') return false;
+        if (wait) return false;
 
-        if (!isClicked) {
-            isClicked = !isClicked;
+
+
+        if (!isFirstClicked) {
+            target.style.opacity = '1';
+            isFirstClicked = !isFirstClicked;
             cardFirst = target;
         }
-        else if (cardFirst.src === target.src) {
-            target.classList.add('hidden');
-            cardFirst.classList.add('hidden');
-            cardCount -= 2;
-            isClicked = !isClicked;
+        else if (cardFirst.src === target.src) { // correct card
+            if (target.style.opacity !== '0') {// double click!
+                target.style.opacity = '0';
+                isFirstClicked = !isFirstClicked;
+                return false;
+            }
+            target.style.opacity = '1';
+            wait = true;
+            hideCardsPair(target, cardFirst);
 
+            cardCount -= 2;
+            isFirstClicked = !isFirstClicked;
+            // win game check
             if (cardCount <= 0) {
                 document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
                 document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
             }
         }
-        else {
-            isClicked = !isClicked;
-            cardFirst = "";
-            alert('not a pair');
+        else { // incorrect card
+            target.style.opacity = '1';
+            wait = true;
+            isFirstClicked = !isFirstClicked;
+            setTimeout(function () {
+                target.style.opacity = '0'; // TODO: replace to 0
+                cardFirst.style.opacity = '0'; // TODO: replace to 0
+                cardFirst = "";
+                wait = false;
+            }, 500);
         }
-
-
     };
 
     newGameButton.onclick = restartButton.onclick = newGame;
+
+    function hideCardsPair(card1, card2) {
+        setTimeout(function () {
+            card1.style.opacity = '0';
+            card2.style.opacity = '0';
+
+            setTimeout(function () {
+                card1.parentElement.style.height = '0';
+                card2.parentElement.style.height = '0';
+                card1.style.height = '0';
+                card2.style.height = '0';
+                wait = false;
+            },200);
+        },500);
+
+    }
+
+    function hideAllCards() {
+        setTimeout(function () {
+            imagesList.forEach(image => {
+                image.style.opacity = '0'
+            });
+            wait = false;
+        }, 5000); // 5 sec
+
+    }
 
     function newGame() {
         this.parentNode.classList.toggle('notDisplaying');
         document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
 
-        imagesList.forEach(image => {
-            image.classList.remove('hidden')
-        });
+        /*imagesList.forEach((image) => {
+            image.parentElement.style.opacity = '1';
+        });*/
 
         cardCount = 18;
         score = 0;
 
         setRandomCards();
+
+        hideAllCards();
+
     }
 
     function setRandomCards() {
         let array = getRandomArray(9, cardsList.length);
         let arrayCopy = shuffleArray(array.slice(0));
 
-        /*arr.forEach((array) => {
+       /* array.forEach((array) => {
             console.log(array)
         });
         console.log("");
-        arr2.forEach((array) => {
+        arrayCopy.forEach((array) => {
             console.log(array)
         });
         console.log("");*/
@@ -144,13 +220,27 @@
         try {
             for (let i = 0; i < 9; i++) {
                 imagesList[i].src = setPath(cardsList[array[i]]);
-                // console.log(cardsList[arr[i]]);
+                // console.log(setPath(cardsList[array[i]]));
             }
             // console.log("");
             for (let i = 9; i < 18; i++) {
                 imagesList[i].src = setPath(cardsList[arrayCopy[i - 9]]);
-                // console.log(cardsList[arr2[i - 9]]);
+                // console.log(setPath(cardsList[arrayCopy[i - 9]]));
             }
+
+            imagesList.forEach(function (item) {
+                item.onload = function () {
+                    item.style.height = '181px';
+                    setTimeout(function () {
+                        item.parentElement.style.height = '180px';
+                    },200);
+
+                };
+
+            });
+
+            hideAllCards();
+
         }
         catch (err) {
         }
@@ -164,7 +254,7 @@
         let current, array = [];
 
         for (let i = 0; i < length;) {
-            current = Math.floor(Math.random() * (max + 1));
+            current = Math.floor(Math.random() * max);
 
             if (array.length !== 0) {
                 if (!array.includes(current)) {
@@ -196,7 +286,7 @@
     }
 
 
-    setRandomCards();
+    //setRandomCards();
 
 </script>
 

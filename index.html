@@ -17,6 +17,7 @@
         <ul>
             <li><a href="#">навыки</a></li>
             <li><a href="#">образование</a></li>
+            <li><a href="#">работы</a></li>
             <li><a href="#">увлечения</a></li>
             <li><a href="#">контакты</a></li>
         </ul>
@@ -39,6 +40,7 @@
         <p class="title">ключевые навыки</p>
 
         <div class="main-skills skillBox">
+
             <div class="skill">
                 <div class="html image"></div>
                 <p>HTML5</p>
@@ -90,9 +92,41 @@
         </div>
     </div>
 
+    <div class="works-container"></div>
+
+    <div class="hobby-container">
+        <p class="title">Увлечения</p>
+
+        <div class="hobbys">
+            <div class="hobby">
+                <div class="img-container">
+                    <img src="assets/avatar.jpg" alt="">
+
+                </div>
+
+                <p>Разработка игр</p>
+                <p>описание</p>
+            </div>
+            <div class="hobby">
+                <img src="#" alt="">
+                <p>Рисование</p>
+                <p>описание</p>
+            </div>
+            <div class="hobby">
+                <img src="#" alt="">
+                <p>Дизайн</p>
+                <p>описание</p>
+            </div>
+            <div class="hobby">
+                <img src="#" alt="">
+                <p>Занятия спортом</p>
+                <p>описание</p>
+            </div>
+        </div>
+
+    </div>
 </main>
 <footer>
-    <div class="hobby-container"></div>
     <div class="contacts-container">
         <p class="title">Контакты</p>
         <div class="mail">
@@ -142,18 +176,20 @@
     };
 
     function setAttributes(list) {
-        if(list.length < 4 || !list) return;
+        if(list.length < 5 || !list) return;
 
         try {
-            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top +100;
-            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 100;
+            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top +10;
+            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 10;
+            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top;
             let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top;
             let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top;
 
             list[0].setAttribute("value", skillsCoord);
             list[1].setAttribute("value", educationCoord);
-            list[2].setAttribute("value", hobbyCoord);
-            list[3].setAttribute("value", contactsCoord);
+            list[2].setAttribute("value", worksCoord);
+            list[3].setAttribute("value", hobbyCoord);
+            list[4].setAttribute("value", contactsCoord);
         }
         catch (error){
             console.log("error in setAttributes: " + error.message);

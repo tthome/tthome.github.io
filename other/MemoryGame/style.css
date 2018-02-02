@@ -73,13 +73,13 @@ tr:first-child td{
     letter-spacing: 0;
     font-weight: normal;
     cursor: pointer;
-    transition: 200ms ease;
+    transition: 250ms ease;
 }
 tr:first-child td:first-child:hover{
     opacity: 1;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-weight: bold;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
 
 }
 tr:first-child td:last-child{

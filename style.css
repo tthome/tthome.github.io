@@ -16,9 +16,8 @@ header {
     background: #1d2671; /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom right, #c33764, #1d2671);
     background: linear-gradient(to bottom right, #c33764, #1d2671);
-
     height: 100%;
-
+    
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -236,6 +235,11 @@ main:before {
     margin-bottom: 100px;
 }
 
+.other-skills .skill .image{
+    width: 100px;
+    height: 100px;
+}
+
 .photoshop {
     background: url("assets/psCC.png") no-repeat 100% 100%;
     background-size: cover;
@@ -306,6 +310,7 @@ main:before {
 
 .hobby-container{
     background: #d2d2d2;
+    padding-bottom: 50px;
 }
 
 .hobbys{
@@ -316,6 +321,7 @@ main:before {
     flex-direction:row;
     justify-content:flex-start;
     align-items:stretch;
+    transition: 250ms ease;
 }
 
 .hobby{
@@ -328,6 +334,7 @@ main:before {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border: 1px solid #bfbfbf;
+    transition: 250ms ease;
 }
 
 .hobby-text{
@@ -359,6 +366,10 @@ main:before {
     clear: both;
     width: 150px;
     height: 240px;
+    /*background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 300px;*/
 }
 
 .hobby p:first-child{
@@ -517,5 +528,8 @@ main:before {
     }
     .hobby{
         flex-basis: 100%;
+    }
+    .navButton{
+        left: 5%;
     }
 }

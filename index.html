@@ -109,14 +109,14 @@
                 <div class="img-container hob2"></div>
                 <div class="hobby-text">
                     <p>Рисование</p>
-                    <p>Рисунки в стиле "графика" карандашом и шариковыми ручками.</p>
+                    <p>Рисунки в стиле "графика" карандашом, шариковой ручкой и маркерами.</p>
                 </div>
             </div>
             <div class="hobby">
                 <div class="img-container hob3"></div>
                 <div class="hobby-text">
                     <p>Дизайн</p>
-                    <p>Разработка дизайна приложений и игр для мобильных и ПК платформ.</p>
+                    <p>Разработка интерфейсов сайтов, приложений и игр, а также создание уникальных логотипов.</p>
                 </div>
             </div>
             <div class="hobby">
@@ -150,7 +150,8 @@
     let listElements = menuElem.querySelectorAll('ul li');
     let navButtonElem = document.getElementsByClassName('navButton')[0];
 
-    setAttributes(listElements);
+    
+
 
     window.onscroll = function () {
         let menuCoords = menuElem.offsetHeight + 100;
@@ -162,6 +163,10 @@
             navButtonElem.style.opacity = '0';
             navButtonElem.style.cursor = 'auto';
         }
+    };
+
+    window.onresize = function () {
+        setAttributes(listElements);
     };
 
     menuElem.onclick = function (event) {
@@ -179,15 +184,19 @@
         scrollToElement(menuElem.getBoundingClientRect().top);
     };
 
+    function ready() {
+        setAttributes(listElements);
+    }
+
     function setAttributes(list) {
         if(list.length < 5 || !list) return;
 
         try {
-            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top +10;
-            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 10;
-            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top;
-            let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top;
-            let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top;
+            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top+pageYOffset;
+            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top+110+pageYOffset;
+            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top+pageYOffset;
+            let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top+pageYOffset;
+            let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top+pageYOffset;
 
             list[0].setAttribute("value", skillsCoord);
             list[1].setAttribute("value", educationCoord);
@@ -220,6 +229,8 @@
             behavior: 'smooth'
         });
     }
+
+    document.addEventListener("DOMContentLoaded", ready);
 
 
 </script>

@@ -305,7 +305,8 @@ main:before {
     display: flex;
     align-items: center;
     background: rgba(245, 245, 245, 0.1);
-    padding: 25px 25px 50px;
+    padding: 15px 15px 50px;
+    transition: 250ms ease;
 }
 
 .hobby-container{
@@ -468,14 +469,14 @@ main:before {
 
 @media screen and (max-width: 1024px) {
     .hobbys{
-        max-width: 90%;
-        overflow: hidden;
+        /*max-width: 90%;
+        overflow: hidden;*/
     }
     .hobby{
         flex-basis: 100%;
     }
     .educations{
-        width: 90%;
+        width: 95%;
     }
     .education{
         overflow: hidden;

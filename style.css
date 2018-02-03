@@ -306,37 +306,63 @@ main:before {
 
 .hobby-container{
     background: #E0E0E0;
-    /*display: inline-block;
-    justify-content: stretch;
-    align-items: center;
-    flex-direction: column;*/
 }
 
 .hobbys{
     max-width: 70%;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:stretch;
 }
+
 .hobby{
-    width: 200px;
-    height: 200px;
-    background: #383838;
-    line-height: 200px;
-    text-align: center;
+    flex: 1;
+    flex-basis: 45%;
+    min-width: 400px;
+    position: relative;
+    background: #ececec;
+    margin: 18px 10px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid #bfbfbf;
 }
 
-.hobby img{
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
+.hobby-text{
+    padding: 20px;
+}
+
+.hob1{
+    background: url(assets/img1.png) no-repeat;
+}
+
+.hob2{
+    background: url(assets/img2.jpg) no-repeat;
+}
+
+.hob3{
+    background: url(assets/img3.jpg) no-repeat;
+}
+
+.hob4{
+    background: url(assets/img4.jpg) no-repeat;
+    
+}
+
+.img-container{
+    box-shadow: #000000 1px 1px 150px 11px inset;
+    background-size: auto 100%;
+    margin-right: 15px;
     float: left;
+    clear: both;
+    width: 150px;
+    height: 240px;
 }
 
-.hobby p:nth-child(2){
-    float: right;
+.hobby p:first-child{
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -430,6 +456,12 @@ main:before {
 }
 
 @media screen and (max-width: 1024px) {
+    .hobbys{
+        max-width: 90%;
+    }
+    .hobby{
+        flex-basis: 100%;
+    }
     .educations{
         width: 90%;
     }

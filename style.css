@@ -305,7 +305,7 @@ main:before {
 }
 
 .hobby-container{
-    background: #E0E0E0;
+    background: #d2d2d2;
 }
 
 .hobbys{
@@ -321,7 +321,7 @@ main:before {
 .hobby{
     flex: 1;
     flex-basis: 45%;
-    min-width: 400px;
+    min-width: 340px;
     position: relative;
     background: #ececec;
     margin: 18px 10px;
@@ -458,6 +458,7 @@ main:before {
 @media screen and (max-width: 1024px) {
     .hobbys{
         max-width: 90%;
+        overflow: hidden;
     }
     .hobby{
         flex-basis: 100%;
@@ -466,6 +467,7 @@ main:before {
         width: 90%;
     }
     .education{
+        overflow: hidden;
         flex-direction: column;
     }
 }
@@ -490,7 +492,7 @@ main:before {
         margin-left: 20px;
     }
     .educations{
-        width: 100%;
+        max-width: 100%;
     }
     .education{
         flex-direction: column;
@@ -509,7 +511,11 @@ main:before {
     }
     .photo img{
         width: 150px;
+    }    
+    .hobbys{
+        max-width: 100%;
     }
-    .mail{
+    .hobby{
+        flex-basis: 100%;
     }
 }

@@ -215,7 +215,7 @@
 
     function setRandomCards() {
         let array = getRandomArray(9, cardsList.length);
-        let arrayCopy = shuffleArray(array.slice(0));
+        let arrayCopy = shuffle(array.slice(0));
 
         try {
             for (let i = 0; i < 9; i++) {
@@ -272,14 +272,22 @@
     }
 
     // перемешать массив
-    function shuffleArray(array, max) {
-        let tmp, current;
-        if (max) while (--max) {
-            current = Math.floor(Math.random() * (max + 1));
-            tmp = array[current];
-            array[current] = array[max];
-            array[max] = tmp;
+    function shuffle(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
         }
+
         return array;
     }
 

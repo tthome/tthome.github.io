@@ -23,13 +23,19 @@
         </ul>
     </div>
     <div class="about-container">
+        <div class="about-title">
+            <p>Тимко Тимофей</p>
+            <p>Frontend Developer</p>
+        </div>
         <div class="about">
+
             <div class="photo">
                 <img src="assets/avatar.jpg">
             </div>
             <div class="description">
-                <p>Я Тимко Тимофей</p>
+                <p>г. Новосибирск</p>
                 <p>мне 25 лет</p>
+                <p></p>
             </div>
         </div>
 
@@ -102,7 +108,8 @@
                 <div class="img-container hob1"></div>
                 <div class="hobby-text">
                     <p>Разработка</p>
-                    <p>Разработка казуальных игр и приложений для мобильной и ПК платформы устройств семейства Windows.</p>
+                    <p>Разработка казуальных игр и приложений для мобильной и ПК платформы устройств семейства
+                        Windows.</p>
                 </div>
             </div>
             <div class="hobby">
@@ -150,16 +157,14 @@
     let listElements = menuElem.querySelectorAll('ul li');
     let navButtonElem = document.getElementsByClassName('navButton')[0];
 
-    
-
 
     window.onscroll = function () {
         let menuCoords = menuElem.offsetHeight + 100;
 
-        if(menuCoords< pageYOffset){
+        if (menuCoords < pageYOffset) {
             navButtonElem.style.opacity = '1';
             navButtonElem.style.cursor = 'pointer';
-        }else {
+        } else {
             navButtonElem.style.opacity = '0';
             navButtonElem.style.cursor = 'auto';
         }
@@ -174,13 +179,13 @@
         if (target.tagName !== "A") return false;
 
         let value = target.parentElement.getAttribute('value');
-        if(!value || value === "") return false;
+        if (!value || value === "") return false;
 
         scrollToElement(value);
     };
 
     navButtonElem.onclick = function () {
-        if(this.style.opacity === '0') return false;
+        if (this.style.opacity === '0') return false;
         scrollToElement(menuElem.getBoundingClientRect().top);
     };
 
@@ -189,14 +194,14 @@
     }
 
     function setAttributes(list) {
-        if(list.length < 5 || !list) return;
+        if (list.length < 5 || !list) return;
 
         try {
-            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top+pageYOffset;
-            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top+110+pageYOffset;
-            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top+pageYOffset;
-            let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top+pageYOffset;
-            let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top+pageYOffset;
+            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top + pageYOffset;
+            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 110 + pageYOffset;
+            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top + pageYOffset;
+            let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top + pageYOffset;
+            let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top + pageYOffset;
 
             list[0].setAttribute("value", skillsCoord);
             list[1].setAttribute("value", educationCoord);
@@ -204,7 +209,7 @@
             list[3].setAttribute("value", hobbyCoord);
             list[4].setAttribute("value", contactsCoord);
         }
-        catch (error){
+        catch (error) {
             console.log("error in setAttributes: " + error.message);
         }
     }

@@ -64,6 +64,7 @@ header {
 
 .about-container:before {
     content: "Привет";
+    letter-spacing: 15px;
     text-transform: uppercase;
     font-weight: lighter;
     color: white;

@@ -217,12 +217,13 @@
         let array = getRandomArray(9, cardsList.length);
         let arrayCopy = shuffle(array.slice(0));
 
+
         try {
             for (let i = 0; i < 9; i++) {
-                imagesList[i].src = setPath(cardsList[array[i]]);
+                imagesList[i].src = getPath(cardsList[array[i]]);
             }
             for (let i = 9; i < 18; i++) {
-                imagesList[i].src = setPath(cardsList[arrayCopy[i - 9]]);
+                imagesList[i].src = getPath(cardsList[arrayCopy[i - 9]]);
             }
 
             imagesList.forEach(function (item) {
@@ -244,55 +245,36 @@
         }
     }
 
-    function setPath(name) {
+    function getPath(name) {
         return "assets/cards/" + name + ".png";
     }
 
     function getRandomArray(length, max) {
         let current, array = [];
 
-        for (let i = 0; i < length;) {
+        while (array.length !== length) {
             current = Math.floor(Math.random() * max);
-
-            if (array.length !== 0) {
-                if (!array.includes(current)) {
-                    i++;
-                    array.push(current);
-                }
-            } else {
-                i++;
+            if (!array.includes(current)) {
                 array.push(current);
             }
         }
         return array;
-
-        /*return Array.apply(null, Array(length)).map(function () {
-            return Math.round(Math.random() * max);
-        });*/
     }
 
-    // перемешать массив
     function shuffle(array) {
-        let currentIndex = array.length, temporaryValue, randomIndex;
+        let currentIndex = array.length, tempValue, randomIndex;
 
-        // While there remain elements to shuffle...
         while (0 !== currentIndex) {
-
-            // Pick a remaining element...
             randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
+            //currentIndex -= 1;
+            currentIndex--;
 
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
+            tempValue = array[currentIndex];
             array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
+            array[randomIndex] = tempValue;
         }
-
         return array;
     }
-
-
-    //setRandomCards();
 
 </script>
 

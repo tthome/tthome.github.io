@@ -83,10 +83,8 @@ tbody {
 
 #gameTable .newGame:hover {
     opacity: 1;
-    /*text-transform: uppercase;*/
     font-weight: bold;
     letter-spacing: 0.2px;
-
 }
 
 #scoreCol {
@@ -131,15 +129,15 @@ tbody {
     user-drag: none;
 }
 
-.hide {
+#gameTable .hide {
     opacity: 0;
 }
 
-.flipBack {
+#gameTable .flipBack {
     transform: rotateY(0deg);
 }
 
-.collapse {
+#gameTable .collapse {
     opacity: 0;
 }
 

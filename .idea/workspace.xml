@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="768891fe-94a0-41ea-8c1e-e6016d06c519" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/other/MemoryGame/gameLogic.js" afterPath="$PROJECT_DIR$/other/MemoryGame/gameLogic.js" />
-      <change beforePath="$PROJECT_DIR$/other/MemoryGame/index.html" afterPath="$PROJECT_DIR$/other/MemoryGame/index.html" />
       <change beforePath="$PROJECT_DIR$/other/MemoryGame/style.css" afterPath="$PROJECT_DIR$/other/MemoryGame/style.css" />
-      <change beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +21,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/other/MemoryGame/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="408">
               <caret line="95" column="3" lean-forward="false" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -37,13 +34,19 @@
       <file leaf-file-name="gameLogic.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/other/MemoryGame/gameLogic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="170" column="1" lean-forward="false" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
+            <state relative-caret-position="289">
+              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding>
                 <element signature="e#433#800#0" expanded="false" />
+                <element signature="e#938#2336#0" expanded="false" />
+                <element signature="e#1109#1276#0" expanded="false" />
+                <element signature="e#1316#1921#0" expanded="false" />
+                <element signature="e#2010#2156#0" expanded="false" />
+                <element signature="n#!!block;n#newGame#0" expanded="false" />
                 <element signature="n#!!block;n#changeCardVisible#0" expanded="false" />
                 <element signature="n#!!block;n#hideDoubleCards#0" expanded="false" />
                 <element signature="n#!!block;n#hideAllCards#0" expanded="false" />
+                <element signature="n#!!block;n#showAllCards#0" expanded="false" />
                 <element signature="n#!!block;n#getRandomCards#0" expanded="false" />
                 <element signature="n#!!block;n#getPath#0" expanded="false" />
                 <element signature="n#!!block;n#getRandomArray#0" expanded="false" />
@@ -56,8 +59,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/other/MemoryGame/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="388">
+              <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,9 +84,9 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/other/MemoryGame/index.html" />
         <option value="$PROJECT_DIR$/other/MemoryGame/style.css" />
         <option value="$PROJECT_DIR$/other/MemoryGame/gameLogic.js" />
-        <option value="$PROJECT_DIR$/other/MemoryGame/index.html" />
       </list>
     </option>
   </component>
@@ -107,7 +110,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="974" />
+    <option name="width" value="1188" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -156,7 +159,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/other/MemoryGame/index.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/other/MemoryGame/gameLogic.js" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -198,18 +201,18 @@
       <workItem from="1518616239377" duration="595000" />
       <workItem from="1518939851738" duration="5115000" />
       <workItem from="1519185455193" duration="44000" />
-      <workItem from="1519563511683" duration="25690000" />
+      <workItem from="1519563511683" duration="30735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55965000" />
+    <option name="totallyTimeSpent" value="61010000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1188" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29273504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23826087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -236,7 +239,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -396,15 +399,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/other/MemoryGame/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="388">
+          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/other/MemoryGame/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="408">
           <caret line="95" column="3" lean-forward="false" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -415,13 +418,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/other/MemoryGame/gameLogic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="170" column="1" lean-forward="false" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
+        <state relative-caret-position="289">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="e#433#800#0" expanded="false" />
+            <element signature="e#938#2336#0" expanded="false" />
+            <element signature="e#1109#1276#0" expanded="false" />
+            <element signature="e#1316#1921#0" expanded="false" />
+            <element signature="e#2010#2156#0" expanded="false" />
+            <element signature="n#!!block;n#newGame#0" expanded="false" />
             <element signature="n#!!block;n#changeCardVisible#0" expanded="false" />
             <element signature="n#!!block;n#hideDoubleCards#0" expanded="false" />
             <element signature="n#!!block;n#hideAllCards#0" expanded="false" />
+            <element signature="n#!!block;n#showAllCards#0" expanded="false" />
             <element signature="n#!!block;n#getRandomCards#0" expanded="false" />
             <element signature="n#!!block;n#getPath#0" expanded="false" />
             <element signature="n#!!block;n#getRandomArray#0" expanded="false" />

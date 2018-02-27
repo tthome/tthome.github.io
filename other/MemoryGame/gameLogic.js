@@ -51,21 +51,21 @@ gameTableElem.onclick = (event) => {
         if (openCardsCount >= 9) { // win check
             setTimeout(function () { // todo: to css transition time
                 gamePage.classList.toggle('notDisplaying');
-                endPage.classList.toggle('notDisplaying');
-                gameTableElem.classList.toggle('hide');
+                endPage.classList.remove('notDisplaying');
                 scoreElements[1].innerHTML = score.toString();
                 wait = false;
             }, 1000);
         }
     } else { // incorrect card
         score -= openCardsCount * 42;
-        setTimeout(function () {
+        setTimeout(() => {
             changeCardVisible(target);
             changeCardVisible(cardFirst);
             cardFirst = '';
             wait = false;
-        }, 500);
+        }, 500); // hide 2 cards after 0.5s
     }
+
     wait = true;
     changeCardVisible(target);
     isFirstClicked = !isFirstClicked;
@@ -79,11 +79,10 @@ for (let i = 0; i < newGameButtons.length; i++) {
 function newGame() {
     if (wait) return false;
 
-    if (this.parentNode.tagName !== 'TR') {
+    if (this.tagName !== 'TD') {
         gamePage.classList.toggle('notDisplaying');
-        startPage.classList.toggle('notDisplaying');
-        gameTableElem.classList.toggle('hide');
-
+        endPage.classList.add('notDisplaying');
+        startPage.classList.add('notDisplaying');
     }
     openCardsCount = 0;
     score = 0;

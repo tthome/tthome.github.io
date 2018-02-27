@@ -454,7 +454,6 @@ main:before {
 
 .mail a {
     margin-left: 20px;
-    text-transform: uppercase;
     opacity: 0.8;
 }
 
@@ -503,11 +502,6 @@ main:before {
 }
 
 @media screen and (max-width: 1024px) {
-    .hobbys {
-        /*max-width: 90%;
-        overflow: hidden;*/
-    }
-
     .hobby {
         flex-basis: 100%;
     }

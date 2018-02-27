@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -6,25 +6,27 @@
     font-family: "Open Sans", sans-serif;
 }
 
-html{
+html {
     background-color: #207934;
 }
 
-body{
+body {
     color: #FFFFFF;
 }
-p{
+
+p {
     opacity: 0.85;
     letter-spacing: 1px;
 }
-.hidden{
-    visibility: hidden;
-}
-.notDisplaying {
-    display: none;
+
+tbody {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
-.button{
+.button {
     margin-top: 40px;
     display: inline-block;
     font-size: 16px;
@@ -34,40 +36,43 @@ p{
     padding: 10px 20px;
     box-sizing: border-box;
 }
-.button:hover{
+
+.button:hover {
     background: white;
 }
-.page{
+
+.page {
     margin-top: 10%;
     text-align: center;
 }
-.start-page p{
+
+#startPage p {
     font-size: 28px;
     line-height: 38px;
     text-transform: uppercase;
 }
-.end-page p{
+
+#startPage img {
+    margin-bottom: 20px;
+}
+
+#endPage p {
     line-height: 35px;
     font-size: 24px;
 }
-.start-page img{
-    margin-bottom: 20px;
-}
-.end-page img{
+
+#endPage img {
     margin-bottom: 9px;
 }
 
-table{
+#gameTable {
     max-width: 55%;
     margin: 54px auto;
+    opacity: 1;
+    transition: opacity 500ms 500ms ease;
 }
-tbody{
-    display: block;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-tr:first-child td{
+
+#gameTable .newGame {
     font-size: 16px;
     opacity: 0.8;
     letter-spacing: 0;
@@ -75,40 +80,49 @@ tr:first-child td{
     cursor: pointer;
     transition: 250ms ease;
 }
-tr:first-child td:first-child:hover{
+
+#gameTable .newGame:hover {
     opacity: 1;
     /*text-transform: uppercase;*/
     font-weight: bold;
     letter-spacing: 0.2px;
 
 }
-tr:first-child td:last-child{
+
+#scoreCol {
     text-align: right;
 }
 
-td div{
+#gameTable td div {
     margin-top: 25px;
     margin-right: 25px;
     border-radius: 8px;
     background: url("assets/cards/back.PNG") no-repeat;
-    height: 0;
+    height: 181px;
     width: 128px;
     opacity: 1;
-    transition: 300ms ease;
+    transition: opacity 250ms 200ms ease, transform 300ms 300ms ease;
     box-shadow: black 0 1px 5px;
     cursor: pointer;
+    transform: rotateY(-180deg);
 }
-td div:hover{
+
+#gameTable td div:hover {
     box-shadow: black 0 1px 25px;
 }
-td div img{
+
+#gameTable td:last-child div {
+    margin-right: 0;
+}
+
+.card {
     display: block;
     opacity: 1;
     border-radius: 8px;
     height: 181px;
     width: 128px;
     box-shadow: black 0 1px 5px;
-    transition: 250ms ease;
+    transition: opacity 250ms 200ms ease, transform 300ms 300ms ease;
 
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -116,8 +130,21 @@ td div img{
     -o-user-drag: none;
     user-drag: none;
 }
-td:last-child div{
-    margin-right: 0;
+
+.hide {
+    opacity: 0;
+}
+
+.flipBack {
+    transform: rotateY(0deg);
+}
+
+.collapse {
+    opacity: 0;
+}
+
+.notDisplaying {
+    display: none;
 }
 
 

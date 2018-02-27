@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Memory</title>
+    <title>Memory Game</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="start-page page ">
+<div id="startPage" class="page">
     <img src="assets/logos/StartGame.png">
     <p>memory game</p>
-    <a id="newGame" class="button" href="#">Начать игру</a>
+    <a id="newGame" class="button newGame" href="#">Начать игру</a>
 </div>
 
-<div class="game-page notDisplaying">
-    <table id="gameTable">
+<div id="gamePage" class="notDisplaying">
+    <table id="gameTable" class="hide">
         <tr>
-            <td colspan="1">Начать заново</td>
-            <td colspan="5">Очки: <span>0</span></td>
+            <td class="newGame" colspan="1">Начать заново</td>
+            <td id="scoreCol" colspan="5">Очки: <span class="score">0</span></td>
         </tr>
         <tr>
             <td>
@@ -83,200 +83,14 @@
     </table>
 </div>
 
-<div class="end-page page notDisplaying">
+<div id="endPage" class="page notDisplaying">
     <img src="assets/logos/Group%202.png">
     <p>Поздравляем!</p>
-    <p>Ваш итоговый счет: <span>594</span></p>
-    <a id="restart" class="button" href="#">Еще раз</a>
+    <p>Ваш итоговый счет: <span class="score">594</span></p>
+    <a class="button newGame" href="#">Еще раз</a>
 </div>
 
-<script>
-    let gameTableElem = document.getElementById('gameTable');
-    let scoreElem = gameTableElem.querySelector('td span');
-    let newGameTextElem = gameTableElem.querySelector('tr:first-child td:first-child');
-    let imagesList = gameTableElem.querySelectorAll('tr td div img');
-    let restartButton = document.getElementById('restart');
-    let newGameButton = document.getElementById('newGame');
-    let cardFirst;
-    let isFirstClicked = false, wait = true;
-    let cardsList = [
-        "0C", "0D", "0H", "0S",
-        "2C", "2D", "2H", "2S",
-        "3C", "3D", "3H", "3S",
-        "4C", "4D", "4H", "4S",
-        "5C", "5D", "5H", "5S",
-        "6C", "6D", "6H", "6S",
-        "7C", "7D", "7H", "7S",
-        "8C", "8D", "8H", "8S",
-        "9C", "9D", "9H", "9S",
-        "AC", "AD", "AH", "AS",
-        "JC", "JD", "JH", "JS",
-        "KC", "KD", "KH", "KS",
-        "QC", "QD", "QH", "QS",
-    ];
-    let openCardCount = 0, score = 0;
-
-    gameTableElem.onclick = function (event) {
-        let target = event.target;
-
-        if (target.tagName !== 'IMG') return false;
-        if (wait) return false;
-
-        if (!isFirstClicked) {
-            target.style.opacity = '1';
-            isFirstClicked = !isFirstClicked;
-            cardFirst = target;
-        }
-        else if (cardFirst.src === target.src) { // correct card
-            if (target.style.opacity !== '0') {// double click!
-                target.style.opacity = '0';
-                isFirstClicked = !isFirstClicked;
-                return false;
-            }
-            target.style.opacity = '1';
-            wait = true;
-            hideCardsPair(target, cardFirst);
-
-            openCardCount += 2;
-            score += (9 - (openCardCount / 2)) * 42;
-            scoreElem.innerHTML = score;
-
-            isFirstClicked = !isFirstClicked;
-            // win game check
-            if (openCardCount >= 18) {
-                setTimeout(function () {
-                    document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
-                    document.getElementsByClassName('end-page')[0].classList.toggle('notDisplaying');
-                    document.querySelector('.end-page p span').innerHTML = score.toString();
-                }, 500);
-
-            }
-        }
-        else { // incorrect card
-            target.style.opacity = '1';
-            wait = true;
-
-            score -= openCardCount / 2 * 42;
-            scoreElem.innerHTML = score;
-
-            isFirstClicked = !isFirstClicked;
-            setTimeout(function () {
-                target.style.opacity = '0'; // TODO: replace to 0
-                cardFirst.style.opacity = '0'; // TODO: replace to 0
-                cardFirst = "";
-                wait = false;
-            }, 500);
-        }
-    };
-
-    newGameButton.onclick = restartButton.onclick = newGameTextElem.onclick = newGame;
-
-    function hideCardsPair(card1, card2) {
-        setTimeout(function () {
-            card1.style.opacity = '0';
-            card2.style.opacity = '0';
-
-            setTimeout(function () {
-                card1.parentElement.style.height = '0';
-                card2.parentElement.style.height = '0';
-                card1.style.height = '0';
-                card2.style.height = '0';
-                wait = false;
-            }, 200);
-        }, 500);
-
-    }
-
-    function hideAllCards() {
-        setTimeout(function () {
-            imagesList.forEach(image => {
-                image.style.opacity = '0'
-            });
-            wait = false;
-        }, 5000); // 5 sec
-
-    }
-
-    function newGame() {
-        if(this.parentNode.tagName!=='TR'){
-            this.parentNode.classList.toggle('notDisplaying');
-            document.getElementsByClassName('game-page')[0].classList.toggle('notDisplaying');
-        }
-
-        openCardCount = 0;
-        score = 0;
-        scoreElem.innerHTML = score;
-
-        setRandomCards();
-
-        hideAllCards();
-
-    }
-
-    function setRandomCards() {
-        let array = getRandomArray(9, cardsList.length);
-        let arrayCopy = shuffle(array.slice(0));
-
-
-        try {
-            for (let i = 0; i < 9; i++) {
-                imagesList[i].src = getPath(cardsList[array[i]]);
-            }
-            for (let i = 9; i < 18; i++) {
-                imagesList[i].src = getPath(cardsList[arrayCopy[i - 9]]);
-            }
-
-            imagesList.forEach(function (item) {
-                item.onload = function () {
-                    item.style.height = '181px';
-                    item.style.opacity = '1';
-                    setTimeout(function () {
-                        item.parentElement.style.height = '180px';
-                    }, 200);
-
-                };
-
-            });
-
-            hideAllCards();
-
-        }
-        catch (err) {
-        }
-    }
-
-    function getPath(name) {
-        return "assets/cards/" + name + ".png";
-    }
-
-    function getRandomArray(length, max) {
-        let current, array = [];
-
-        while (array.length !== length) {
-            current = Math.floor(Math.random() * max);
-            if (!array.includes(current)) {
-                array.push(current);
-            }
-        }
-        return array;
-    }
-
-    function shuffle(array) {
-        let currentIndex = array.length, tempValue, randomIndex;
-
-        while (0 !== currentIndex) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            //currentIndex -= 1;
-            currentIndex--;
-
-            tempValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = tempValue;
-        }
-        return array;
-    }
-
-</script>
+<script src="gameLogic.js"></script>
 
 </body>
 </html>

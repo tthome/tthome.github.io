@@ -87,7 +87,11 @@ function newGame() {
         gamePage.classList.toggle('noDisplaying');
         endPage.classList.add('noDisplaying');
         startPage.classList.add('noDisplaying');
+    } else {
+        changeCardVisible(cardFirst);
+        cardFirst = '';
     }
+    isFirstClicked = false;
     openCardsCount = 0;
     score = 0;
     scoreElements[0].innerHTML = score.toString();
@@ -131,8 +135,8 @@ function changeCardVisible(card) {
 
 function hideDoubleCards(card1, card2) {
     setTimeout(() => {
-        card1.parentElement.classList.toggle('collapse');
-        card2.parentElement.classList.toggle('collapse');
+        card1.parentElement.classList.add('collapse');
+        card2.parentElement.classList.add('collapse');
         card1.parentElement.classList.toggle('flipBack');
         card2.parentElement.classList.toggle('flipBack');
         wait = false;
@@ -142,8 +146,7 @@ function hideDoubleCards(card1, card2) {
 function flipAllCards(cardsList, time = 5000) {
     setTimeout(() => {
         for (let i = 0; i < cardsList.length; i++) {
-            cardsList[i].classList.toggle('hide');
-            cardsList[i].parentElement.classList.toggle('flipBack');
+            changeCardVisible(cardsList[i]);
         }
         wait = false;
     }, time);

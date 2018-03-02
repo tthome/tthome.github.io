@@ -129,7 +129,7 @@ tbody {
     height: 181px;
     width: 128px;
     box-shadow: black 0 1px 5px;
-    transition: opacity 250ms 200ms ease, transform 300ms 300ms ease;
+    transition: opacity 200ms 300ms ease, transform 300ms 300ms ease;
 
     -webkit-user-drag: none;
     -khtml-user-drag: none;

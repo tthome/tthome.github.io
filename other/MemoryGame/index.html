@@ -5,20 +5,35 @@
     <title>Memory Game</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        const assert = chai.assert;
+    </script>
 </head>
 <body>
 
-<div id="startPage" class="page">
+<div id="startPage" class="page" data-tid="App">
     <img src="assets/logos/StartGame.png">
     <p>memory game</p>
-    <a id="newGame" class="button newGame" href="#">Начать игру</a>
+    <a id="newGame" class="button newGame" href="#" data-tid="NewGame-startGame">Начать игру</a>
 </div>
 
 <div id="gamePage" class="notDisplaying">
-    <table id="gameTable" class="hide">
+    <table id="gameTable" class="hide" data-tid="Deck">
         <tr>
-            <td class="newGame" colspan="1">Начать заново</td>
-            <td id="scoreCol" colspan="5">Очки: <span class="score">0</span></td>
+            <td class="newGame" colspan="1" data-tid="Menu-newGame">Начать заново</td>
+            <td id="scoreCol" colspan="5">Очки: <span class="score" data-tid="Menu-scores">0</span></td>
         </tr>
         <tr>
             <td>
@@ -87,10 +102,15 @@
     <img src="assets/logos/Group%202.png">
     <p>Поздравляем!</p>
     <p>Ваш итоговый счет: <span class="score">594</span></p>
-    <a class="button newGame" href="#">Еще раз</a>
+    <a class="button newGame" href="#" data-tid="EndGame-retryGame">Еще раз</a>
 </div>
 
+// <!-- в элементе с id="mocha" будут результаты тестов -->
+<div style="background: white; color: black" id="mocha"></div>
+
 <script src="gameLogic.js"></script>
+
+<script src="tests.js"></script>
 
 </body>
 </html>

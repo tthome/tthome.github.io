@@ -6,7 +6,10 @@ const gameTableElem = document.getElementById('gameTable');
 let scoreElements = document.getElementsByClassName('score');
 const imagesList = gameTableElem.querySelectorAll('img');
 const newGameButtons = document.getElementsByClassName('newGame');
-
+const scoreEnum = {
+    addScore: "add",
+    removeScore: "remove"
+};
 const cardsNameList = [
     "0C", "0D", "0H", "0S",
     "2C", "2D", "2H", "2S",
@@ -31,49 +34,50 @@ let openCardsCount = 0,
 gameTableElem.onclick = (event) => {
     let target = event.target;
 
-    if (target.tagName !== 'IMG' || wait || target.parentElement.classList.contains('collapse')) return false;
+    if (wait ||
+        target.tagName !== 'IMG' ||
+        target.parentElement.classList.contains('collapse')) return false;
 
-    if (!isFirstClicked) { // first card click
-        changeCardVisible(target); // show card
-        isFirstClicked = !isFirstClicked;
-        cardFirst = target;
+    if (!isFirstClicked) { // если первая карта еще не выбрана
+        flipCard(target); // переворот первой карты
+        cardFirst = target; // запоминание первой карты
         return false;
     }
 
-    if (cardFirst.src === target.src) { // correct card
-        if (!target.classList.contains('hide')) { // double click!
+    if (cardFirst.src === target.src) { // правильная пара
+        if (!target.classList.contains('hide')) { // отмена двойного клика по выбранной карте
             return false;
         }
-        openCardsCount += 1;
-        score += (9 - openCardsCount) * 42;
-        hideDoubleCards(target, cardFirst);
+        openCardsCount++;
+        score = setScore(score, scoreEnum.addScore, openCardsCount, imagesList.length);
+        hideDoubleCards(target, cardFirst); // скрыть отгаданную пару карт
 
-        if (openCardsCount >= 9) { // win check
-            setTimeout(function () { // todo: to css transition time
+        if (openCardsCount >= imagesList.length / 2) { // проверка на выигрыш
+            setTimeout(() => {
                 gamePage.classList.toggle('notDisplaying');
                 endPage.classList.remove('notDisplaying');
                 scoreElements[1].innerHTML = score.toString();
                 wait = false;
             }, 1000);
         }
-    } else { // incorrect card
-        score -= openCardsCount * 42;
+    } else { // неправильная пара
+        score = setScore(score, scoreEnum.removeScore, openCardsCount);
         setTimeout(() => {
-            changeCardVisible(target);
-            changeCardVisible(cardFirst);
-            cardFirst = '';
+            changeCardVisible(target); // переворот карты 1
+            changeCardVisible(cardFirst); // переворот карты 2
+            target.dataset.tid = 'Card';
+            cardFirst.dataset.tid = 'Card';
+            cardFirst = ''; // сброс первой карты
             wait = false;
-        }, 500); // hide 2 cards after 0.5s
+        }, 1000);
     }
-
     wait = true;
-    changeCardVisible(target);
-    isFirstClicked = !isFirstClicked;
+    flipCard(target); // переворот карты 2
     scoreElements[0].innerHTML = score.toString();
 };
 
 for (let i = 0; i < newGameButtons.length; i++) {
-    newGameButtons[i].onclick = newGame; // adding newGameButtons click handle
+    newGameButtons[i].onclick = newGame; // добавление обработчика всем кнопкам запуска новой игры
 }
 
 function newGame() {
@@ -92,7 +96,32 @@ function newGame() {
 
     getRandomCards(imagesList, cardsNameList);
     showAllCards(imagesList);
-    hideAllCards(imagesList); // hide after 5 sec
+    hideAllCards(imagesList); // скрыть все карты после 5сек
+}
+
+function setScore(score = 0, Enum, openCards = 0, cardsListLength = 0) {
+    const coefficient = 42;
+
+    if (cardsListLength < 0) return score;
+
+    switch (Enum) {
+        case "add":
+            score += ((cardsListLength / 2) - openCards) * coefficient; // общее количество карт - число открытых карт * коэффициент
+            break;
+        case "remove":
+            score -= openCards * coefficient; // число открытых карт * коэффициент
+            break;
+        default:
+            console.log('incorrect enum');
+            break;
+    }
+    return score;
+}
+
+function flipCard(target) {
+    changeCardVisible(target); // переворот карты
+    target.dataset.tid = 'Card-flipped';
+    isFirstClicked = !isFirstClicked;
 }
 
 function changeCardVisible(card) {
@@ -112,38 +141,43 @@ function hideDoubleCards(card1, card2) {
 
 function hideAllCards(cardsList, time = 5000) {
     setTimeout(() => {
-        cardsList.forEach(card => {
-            card.classList.toggle('hide');
-            card.parentElement.classList.toggle('flipBack');
-        });
+        for (let i = 0; i < cardsList.length; i++) {
+            cardsList[i].classList.toggle('hide');
+            cardsList[i].parentElement.classList.toggle('flipBack');
+        }
         wait = false;
-    }, time); // default 5 sec
+    }, time);
 }
 
 function showAllCards(cardsList) {
-    cardsList.forEach(card => {
-        card.classList.remove('hide');
-        card.parentElement.classList.remove('collapse');
-        card.parentElement.classList.toggle('flipBack');
-    });
+    for (let i = 0; i < cardsList.length; i++) {
+        cardsList[i].classList.remove('hide');
+        cardsList[i].parentElement.classList.remove('collapse');
+        cardsList[i].parentElement.classList.toggle('flipBack');
+    }
 }
 
 function getRandomCards(cardsList, pathList) {
-    let array = getRandomArray(9, pathList.length);
-    let fullArray = shuffleArray(array.concat(array.slice(0))); // create copy -> connect -> shuffle
+    let array = getRandomArray(9, pathList.length); // получение рандомного массива
+    let arrayCopy = array.slice(0); // получение копии массива
+    let fullArray = shuffleArray(array.concat(arrayCopy)); // соединение двух массивов и перемешивание
 
     for (let i = 0; i < fullArray.length; i++) {
         let cardsListIndex = fullArray[i];
         cardsList[i].src = getPath(pathList[cardsListIndex]);
         cardsList[i].classList.add('card');
+        cardsList[i].dataset.tid = 'Card';
     }
 }
 
-function getPath(name) {
+function getPath(name = '') {
     return "assets/cards/" + name + ".png";
 }
 
-function getRandomArray(length, max) {
+function getRandomArray(length = 0, max = 0) {
+    if (length >= max) return null;
+    if (typeof length === 'string' || typeof max === 'string') return NaN;
+
     let current, array = [];
 
     while (array.length !== length) {
@@ -155,7 +189,9 @@ function getRandomArray(length, max) {
     return array;
 }
 
-function shuffleArray(array) {
+function shuffleArray(array = []) {
+    if (!Array.isArray(array)) return NaN;
+
     let currentIndex = array.length, tempValue, randomIndex;
 
     while (0 !== currentIndex) {

@@ -54,8 +54,8 @@ gameTableElem.onclick = (event) => {
 
         if (openCardsCount >= imagesList.length / 2) { // проверка на выигрыш
             setTimeout(() => {
-                gamePage.classList.toggle('notDisplaying');
-                endPage.classList.remove('notDisplaying');
+                gamePage.classList.toggle('noDisplaying');
+                endPage.classList.remove('noDisplaying');
                 scoreElements[1].innerHTML = score.toString();
                 wait = false;
             }, 1000);
@@ -84,9 +84,9 @@ function newGame() {
     if (wait) return false;
 
     if (this.tagName !== 'TD') {
-        gamePage.classList.toggle('notDisplaying');
-        endPage.classList.add('notDisplaying');
-        startPage.classList.add('notDisplaying');
+        gamePage.classList.toggle('noDisplaying');
+        endPage.classList.add('noDisplaying');
+        startPage.classList.add('noDisplaying');
     }
     openCardsCount = 0;
     score = 0;
@@ -96,7 +96,7 @@ function newGame() {
 
     getRandomCards(imagesList, cardsNameList);
     showAllCards(imagesList);
-    hideAllCards(imagesList); // скрыть все карты после 5сек
+    flipAllCards(imagesList); // перевернуть все карты рубашкой вверх после 5сек
 }
 
 function setScore(score = 0, Enum, openCards = 0, cardsListLength = 0) {
@@ -139,7 +139,7 @@ function hideDoubleCards(card1, card2) {
     }, 500);
 }
 
-function hideAllCards(cardsList, time = 5000) {
+function flipAllCards(cardsList, time = 5000) {
     setTimeout(() => {
         for (let i = 0; i < cardsList.length; i++) {
             cardsList[i].classList.toggle('hide');

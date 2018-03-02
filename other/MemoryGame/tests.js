@@ -1,3 +1,5 @@
+const assert = chai.assert;
+
 describe("getPath()", () => {
     const checkArray = ['H1', 9, '', null];
 
@@ -64,5 +66,5 @@ describe("setScore()", () => {
 
 });
 
-// для запуска тестов раскомментить
+// TODO: для запуска тестов раскомментить
 //mocha.run();

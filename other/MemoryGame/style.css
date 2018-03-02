@@ -89,6 +89,15 @@ tbody {
 
 #scoreCol {
     text-align: right;
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#scoreCol .score {
+    margin-left: 10px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
 }
 
 #gameTable td div {
@@ -141,7 +150,7 @@ tbody {
     opacity: 0;
 }
 
-.notDisplaying {
+.noDisplaying {
     display: none;
 }
 

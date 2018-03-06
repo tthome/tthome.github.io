@@ -40,15 +40,18 @@ describe("getRandomArray()", () => {
         });
         assert.equal(array.length, tmpArray.length, "в массиве повторяющиеся числа");
     });
-    it('должен вернуть null при (), (5,5), (5,2)', () => {
-        assert.equal(getRandomArray(), null);
-        assert.equal(getRandomArray(5, 5), null);
-        assert.equal(getRandomArray(5, 2), null);
+    it('должен вернуть [] при (), (5,5), (5,2)', () => {
+        assert.isArray(getRandomArray());
+        assert.isArray(getRandomArray(5, 5));
+        assert.isArray(getRandomArray(5, 2));
     });
-    it('должен вернуть NaN при "string"', () => {
-        assert(isNaN(getRandomArray('str1', 'str2')));
-        assert(isNaN(getRandomArray('str1')));
-        assert(isNaN(getRandomArray(4, '8')));
+    it('должен вернуть [] при "string"', () => {
+        assert.isArray(getRandomArray('str1', 'str2'));
+        assert.isArray(getRandomArray('str1'));
+        assert.isArray(getRandomArray(4, '8'));
+    });
+    it('должен вернуть [] при "4.65"', function () {
+        assert.isArray(getRandomArray(-4.65, 8));
     });
 });
 

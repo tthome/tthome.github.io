@@ -8,9 +8,6 @@
 
 html {
     background-color: #207934;
-}
-
-body {
     color: #FFFFFF;
 }
 
@@ -83,8 +80,6 @@ tbody {
 
 #gameTable .newGame:hover {
     opacity: 1;
-    font-weight: bold;
-    letter-spacing: 0.2px;
 }
 
 #scoreCol {
@@ -108,7 +103,7 @@ tbody {
     height: 181px;
     width: 128px;
     opacity: 1;
-    transition: opacity 250ms 200ms ease, transform 300ms 300ms ease;
+    transition: opacity 250ms 200ms ease, transform 300ms 300ms ease, visibility 400ms 400ms ease;
     box-shadow: black 0 1px 5px;
     cursor: pointer;
     transform: rotateY(-180deg);
@@ -148,6 +143,7 @@ tbody {
 
 #gameTable .collapse {
     opacity: 0;
+    visibility: hidden;
 }
 
 .noDisplaying {

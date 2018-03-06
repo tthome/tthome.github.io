@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
+    <!--подключение шрифтов-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!--подключение игровых стилей-->
     <link rel="stylesheet" href="style.css">
     <!-- подключение стилей Mocha, для отображения результатов -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
@@ -22,7 +24,7 @@
 <div id="startPage" class="page" data-tid="App">
     <img src="assets/logos/StartGame.png">
     <p>memory game</p>
-    <a id="newGame" class="button newGame" href="#" data-tid="NewGame-startGame">Начать игру</a>
+    <a class="button newGame" href="#" data-tid="NewGame-startGame">Начать игру</a>
 </div>
 
 <div id="gamePage" class="noDisplaying">
@@ -97,7 +99,7 @@
 <div id="endPage" class="page noDisplaying">
     <img src="assets/logos/Group2.png">
     <p>Поздравляем!</p>
-    <p>Ваш итоговый счет: <span class="score">594</span></p>
+    <p>Ваш итоговый счет: <span class="score">0</span></p>
     <a class="button newGame" href="#" data-tid="EndGame-retryGame">Еще раз</a>
 </div>
 

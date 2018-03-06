@@ -54,7 +54,7 @@ gameTableElem.onclick = (event) => {
 
         if (openCardsCount >= imagesList.length / 2) { // проверка на выигрыш
             setTimeout(() => {
-                gamePage.classList.toggle('noDisplaying');
+                gamePage.classList.add('noDisplaying');
                 endPage.classList.remove('noDisplaying');
                 scoreElements[1].innerHTML = score.toString();
                 wait = false;
@@ -67,7 +67,6 @@ gameTableElem.onclick = (event) => {
             changeCardVisible(cardFirst); // переворот карты 2
             target.dataset.tid = 'Card';
             cardFirst.dataset.tid = 'Card';
-            cardFirst = ''; // сброс первой карты
             wait = false;
         }, 1000);
     }
@@ -83,14 +82,16 @@ for (let i = 0; i < newGameButtons.length; i++) {
 function newGame() {
     if (wait) return false;
 
-    if (this.tagName !== 'TD') {
-        gamePage.classList.toggle('noDisplaying');
+    if (this.tagName !== 'TD') { // новая игра запускается не из игрового поля
+        gamePage.classList.remove('noDisplaying');
         endPage.classList.add('noDisplaying');
         startPage.classList.add('noDisplaying');
     } else {
-        changeCardVisible(cardFirst);
+        cardFirst.classList.remove('hide');
+        cardFirst.parentElement.classList.remove('flipBack');
         cardFirst = '';
     }
+
     isFirstClicked = false;
     openCardsCount = 0;
     score = 0;
@@ -139,6 +140,8 @@ function hideDoubleCards(card1, card2) {
         card2.parentElement.classList.add('collapse');
         card1.parentElement.classList.toggle('flipBack');
         card2.parentElement.classList.toggle('flipBack');
+        card1.dataset.tid = 'Card';
+        card2.dataset.tid = 'Card';
         wait = false;
     }, 500);
 }
@@ -178,13 +181,18 @@ function getPath(name = '') {
 }
 
 function getRandomArray(length = 0, max = 0) {
-    if (length >= max) return null;
-    if (typeof length === 'string' || typeof max === 'string') return NaN;
+    let parseLength = Number.parseInt(length.toString());
+    let parseMax = Number.parseInt(max.toString());
+
+    if (Number.isNaN(parseLength) || Number.isNaN(parseMax)) return [];
+    if (parseLength < 0 || parseMax < 0 || parseLength >= parseMax) return [];
+
+    console.log(parseLength + " " + parseMax);
 
     let current, array = [];
 
-    while (array.length !== length) {
-        current = Math.floor(Math.random() * max);
+    while (array.length !== parseLength) {
+        current = Math.floor(Math.random() * parseMax);
         if (!array.includes(current)) {
             array.push(current);
         }

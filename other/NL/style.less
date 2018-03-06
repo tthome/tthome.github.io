@@ -1,0 +1,475 @@
+@orangeColor: #ffa800;
+@greenColor: #4cb62c;
+@blueColor: #34ace0;
+@grayColor: #f6f6f6;
+@blueColor2: #1f8cd7;
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 10px 16px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  background: black;
+  cursor: pointer;
+  transition: 200ms ease;
+  width: 183px;
+  height: 50px;
+  margin-top: 14px;
+
+  img {
+    padding: 0 20px;
+  }
+
+  &:hover {
+    box-shadow: black 0 0 10px 0;
+  }
+}
+
+.orange {
+  background: @orangeColor;
+}
+
+.blue {
+  background: @blueColor;
+}
+
+body {
+  //background: url("assets/email.jpg") no-repeat;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+footer, main, header {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+header {
+  line-height: 22px;
+  color: white;
+  font-weight: bold;
+
+  a {
+    color: white;
+  }
+
+  .logoContainer {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+
+    .logo {
+      background: @greenColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin: 50px 56px;
+        box-sizing: border-box;
+      }
+    }
+
+    .logoInfo {
+      padding: 30px 50px;
+      display: block;
+      background: url("assets/headerBg.png");
+
+      .links {
+        margin-bottom: 24px;
+        a:last-child {
+          padding-left: 48px;
+        }
+      }
+
+      p {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      span {
+        font-weight: normal;
+        color: @orangeColor;
+      }
+    }
+
+  }
+}
+
+main {
+  .chatApp {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background: url("assets/appBg.png") no-repeat;
+    padding-left: 50px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 466px;
+
+    .sLogo {
+      width: 108px;
+      margin-top: 59px;
+      margin-bottom: 30px;
+    }
+
+    p:first-of-type {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-size: 16px;
+      width: 160px;
+      margin-top: 28px;
+      margin-bottom: 72px;
+    }
+
+    .iPhone {
+      margin-top: 24px;
+      margin-right: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      img:first-child {
+        position: relative;
+      }
+
+      img:last-child {
+        position: absolute;
+        top: 160px;
+      }
+    }
+  }
+
+  .abilityContainer {
+    background: url("assets/abilityBg.png");
+
+    .abilities {
+      background: url("assets/book.png") right 32% no-repeat;
+      padding-top: 50px;
+      padding-left: 50px;
+      font-size: 18px;
+      color: black;
+      font-weight: normal;
+
+      h1 {
+        max-width: 80%;
+        margin: 16px 0;
+        font-size: 30px;
+      }
+
+      p {
+        max-width: 80%;
+
+        &:last-of-type {
+          margin-top: 26px;
+          padding-bottom: 53px;
+          max-width: 90%;
+        }
+      }
+    }
+
+  }
+
+  .appReview {
+    background: url("assets/appReviewBg.png");
+    color: white;
+
+    .review {
+      display: flex;
+      margin-left: 48px;
+
+      .iPhone {
+        margin-top: 61px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+
+        img:first-child {
+          height: 524px;
+        }
+
+        img:last-child {
+          position: absolute;
+          top: 57px;
+        }
+      }
+
+      .about {
+        line-height: 22px;
+        margin-top: 82px;
+        margin-left: 44px;
+        margin-right: 30px;
+        font-size: 18px;
+
+        h1 {
+          font-size: 30px;
+        }
+
+        p {
+          margin: 20px 0;
+        }
+
+        ul {
+          li {
+            line-height: 20px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            margin-left: 30px;
+            font-size: 36px;
+
+            span {
+              line-height: 10px;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+
+    .plusInfo {
+      margin-top: 36px;
+      padding-bottom: 43px;
+      margin-left: 50px;
+
+      p:last-child {
+        max-width: 68%;
+      }
+
+      .info {
+        padding: 14px 16px;
+        display: inline-block;
+        border: 2px solid white;
+        margin-bottom: 16px;
+        position: relative;
+
+        &:before {
+          content: "+";
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: -16px;
+          left: -16px;
+
+          color: @blueColor2;
+          background: white;
+          border-radius: 50%;
+
+          width: 32px;
+          height: 32px;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  .instruction {
+    position: relative;
+    margin-left: 48px;
+    padding-top: 44px;
+
+    &:before {
+      position: absolute;
+      top: -128px;
+      right: 0;
+      content: "";
+      width: 169px;
+      height: 278px;
+      background: url("assets/coffee.png") no-repeat;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+    }
+
+    ul {
+      max-width: 72%;
+
+      li {
+        font-size: 36px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 30px;
+        color: @blueColor2;
+        line-height: 22px;
+
+        span {
+          font-size: 18px;
+          color: black;
+        }
+      }
+    }
+
+    p:nth-child(5) {
+      margin-top: 30px;
+    }
+    p:last-child {
+      margin-bottom: 54px;
+    }
+
+  }
+
+  .appsContainer {
+
+    .subscribe {
+      background: @blueColor;
+      width: 146px;
+      height: 44px;
+    }
+
+    .app {
+      .appDescription {
+        max-width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 30px;
+
+        div {
+          padding-left: 20px;
+        }
+
+        h1 {
+          font-size: 26px;
+        }
+      }
+
+      .reader {
+        padding: 10px;
+        margin-left: 10px;
+        width: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        background: #a0e7ff;
+        border-radius: 4px;
+
+        img {
+          margin: 15px 15px 15px 6px;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .block-1 {
+      background: @grayColor;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 40px 20px 40px 40px;
+    }
+
+    .block-2 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 55px 0 10px 50px;
+
+      .app:last-child .appDescription {
+        max-width: 90%;
+      }
+    }
+
+    .block-3 {
+      background: @grayColor;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 10px 20px 40px 40px;
+
+      .appDescription {
+        margin: 30px auto;
+        //margin-bottom: 30px;
+        max-width: 70%;
+      }
+
+      .apps {
+        display: flex;
+        justify-content: center;
+
+        button:last-child {
+          margin-left: 12px;
+        }
+      }
+    }
+
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 30px;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  .social {
+    margin: 25px auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a {
+      margin-left: 10px;
+      font-weight: normal;
+    }
+  }
+
+  a {
+    color: black;
+    font-weight: bold;
+  }
+
+  p {
+    max-width: 80%;
+  }
+}

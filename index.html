@@ -9,18 +9,18 @@
 
     <!-- smooth scroll behavior polyfill -->
     <script async src="scrollpoly.js"></script>
-
+    <script src="scripts.js"></script>
 </head>
 <body>
 <header>
     <div class="header-container">
         <div class="menu">
             <ul>
-                <li><a href="#">навыки</a></li>
-                <li><a href="#">образование</a></li>
+                <li><a href="#skills">навыки</a></li>
+                <li><a href="#education">образование</a></li>
                 <li><a href="#">работы</a></li>
-                <li><a href="#">увлечения</a></li>
-                <li><a href="#">контакты</a></li>
+                <li><a href="#hobby">увлечения</a></li>
+                <li><a href="#contacts">контакты</a></li>
             </ul>
         </div>
         <div class="about-container">
@@ -45,7 +45,7 @@
 </header>
 <main>
     <div class="skills-container">
-        <p class="title">ключевые навыки</p>
+        <p id="skills" class="title">ключевые навыки</p>
 
         <div class="main-skills skillBox">
 
@@ -76,7 +76,7 @@
     </div>
 
     <div class="education-container">
-        <p class="title">Образование</p>
+        <p id="education" class="title">Образование</p>
 
         <div class="educations">
             <div class="first-education education">
@@ -103,7 +103,7 @@
     <div class="works-container"></div>
 
     <div class="hobby-container">
-        <p class="title">Увлечения</p>
+        <p id="hobby" class="title">Увлечения</p>
 
         <div class="hobbys">
             <div class="hobby">
@@ -141,7 +141,7 @@
 </main>
 <footer>
     <div class="contacts-container">
-        <p class="title">Контакты</p>
+        <p id="contacts" class="title">Контакты</p>
         <div class="mail">
             <p>Электронная почта: </p>
             <a href="#">t.t.home@live.ru</a>
@@ -155,90 +155,6 @@
 </footer>
 
 <script>
-    let menuElem = document.getElementsByClassName('menu')[0];
-    let listElements = menuElem.querySelectorAll('ul li');
-    let navButtonElem = document.getElementsByClassName('navButton')[0];
-
-
-    window.onscroll = function () {
-        let menuCoords = menuElem.offsetHeight + 100;
-
-        if (menuCoords < pageYOffset) {
-            navButtonElem.style.opacity = '1';
-            navButtonElem.style.cursor = 'pointer';
-        } else {
-            navButtonElem.style.opacity = '0';
-            navButtonElem.style.cursor = 'auto';
-        }
-    };
-
-    window.onresize = function () {
-        setAttributes(listElements);
-    };
-
-    menuElem.onclick = function (event) {
-        let target = event.target;
-        if (target.tagName !== "A") return false;
-
-        let value = target.parentElement.getAttribute('value');
-        if (!value || value === "") return false;
-
-        scrollToElement(value);
-    };
-
-    navButtonElem.onclick = function () {
-        if (this.style.opacity === '0') return false;
-        scrollToElement(menuElem.getBoundingClientRect().top);
-    };
-
-    function ready() {
-        setAttributes(listElements);
-    }
-
-    function setAttributes(list) {
-        if (list.length < 5 || !list) return;
-
-        try {
-            let skillsCoord = document.getElementsByClassName('skills-container')[0].getBoundingClientRect().top + pageYOffset;
-            let educationCoord = document.getElementsByClassName('education-container')[0].getBoundingClientRect().top + 110 + pageYOffset;
-            let worksCoord = document.getElementsByClassName('works-container')[0].getBoundingClientRect().top + pageYOffset;
-            let hobbyCoord = document.getElementsByClassName('hobby-container')[0].getBoundingClientRect().top + pageYOffset;
-            let contactsCoord = document.getElementsByClassName('contacts-container')[0].getBoundingClientRect().top + pageYOffset;
-
-            list[0].setAttribute("value", skillsCoord);
-            list[1].setAttribute("value", educationCoord);
-            list[2].setAttribute("value", worksCoord);
-            list[3].setAttribute("value", hobbyCoord);
-            list[4].setAttribute("value", contactsCoord);
-        }
-        catch (error) {
-            console.log("error in setAttributes: " + error.message);
-        }
-    }
-
-    function getAge() {
-        let ageElem = document.querySelector('.description p:last-child');
-
-
-        let date = new Date();
-        let years = date.getFullYear() - 1993;
-        let day = date.getDate() - 4;
-
-        ageElem.innerHTML = years + " лет, " + day + " дней";
-    }
-
-    //getAge();
-
-    function scrollToElement(topCoord) {
-        window.scrollBy({
-            top: topCoord,
-            left: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", ready);
-
 
 </script>
 
